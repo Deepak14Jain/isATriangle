@@ -1,24 +1,29 @@
 import java.util.Scanner;
 
 public class Triangle {
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Input: Three sides of the triangle
-        System.out.print("Enter side A: ");
-        int a = scanner.nextInt();
-
-        System.out.print("Enter side B: ");
-        int b = scanner.nextInt();
-
-        System.out.print("Enter side C: ");
-        int c = scanner.nextInt();
+        int a = inputSide('A');
+        int b = inputSide('B');
+        int c = inputSide('C');
 
         String result = classifyTriangle(a, b, c);
+        System.out.println("A: " + a);
+        System.out.println("B: " + b);
+        System.out.println("C: " + c);
         System.out.println("Result: " + result);
+    }
 
-        scanner.close();
+    public static int inputSide(char side) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+
+            // Input: Three sides of the triangle
+            System.out.print("Enter side " + side +": ");
+            return scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Error: Invalid Input, Expecting an Integer\n----------------------");
+            return inputSide(side);
+        }
     }
 
     public static String classifyTriangle(int a, int b, int c) {
