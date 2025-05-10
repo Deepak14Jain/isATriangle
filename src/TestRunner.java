@@ -58,7 +58,7 @@ public class TestRunner {
 
     private static void printTable(List<TestResult> results) {
         System.out.printf(BOLD + "%-50s %-10s %-40s\n" + RESET, "Test Name", "Status", "Message");
-        System.out.println("=".repeat(90));
+        System.out.println("=".repeat(100));
 
         for (TestResult tr : results) {
             String status = tr.passed ? GREEN + "PASS" + RESET : RED + "FAIL" + RESET;

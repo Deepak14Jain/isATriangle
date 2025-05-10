@@ -58,7 +58,7 @@ import java.util.List;
 
     private static void printTable(List&lt;TestResult&gt; results) {
 <span class="nc" id="L60">        System.out.printf(BOLD + &quot;%-50s %-10s %-40s\n&quot; + RESET, &quot;Test Name&quot;, &quot;Status&quot;, &quot;Message&quot;);</span>
-<span class="nc" id="L61">        System.out.println(&quot;=&quot;.repeat(90));</span>
+<span class="nc" id="L61">        System.out.println(&quot;=&quot;.repeat(100));</span>
 
 <span class="nc bnc" id="L63" title="All 2 branches missed.">        for (TestResult tr : results) {</span>
 <span class="nc bnc" id="L64" title="All 2 branches missed.">            String status = tr.passed ? GREEN + &quot;PASS&quot; + RESET : RED + &quot;FAIL&quot; + RESET;</span>
