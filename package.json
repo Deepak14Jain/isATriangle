@@ -1,0 +1,30 @@
+{
+  "name": "isatriangle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "clean": "rm -rf out jacoco.exec coverage-report",
+    "compile": "javac -d out/production/IsATriangle -cp $(node classpath.js) src/*.java",
+    "tests": "npm run compile && java -cp $(node classpath.js) TestRunner",
+    "startApp": "npm run compile && echo '\u001B[36m✔ Compilation successful\u001B[0m' && npm run tests-coverage && npm run tests && npm run coverage && java -cp out/production/IsATriangle Triangle",
+
+    "tests-coverage": "java -javaagent:lib/jacoco-0.8.13/lib/jacocoagent.jar=destfile=jacoco.exec -cp $(node classpath.js) org.junit.runner.JUnitCore TriangleTest",
+    "coverage": "java -jar lib/jacoco-0.8.13/lib/jacococli.jar report jacoco.exec --classfiles out/production/IsATriangle --sourcefiles src --html coverage-report --name 'Triangle Coverage Report' --encoding UTF-8 && echo '\u001b[32m✔ Coverage report generated successfully.\u001b[0m'",
+    "coverage:console": "java -jar lib/jacoco-0.8.13/lib/jacococli.jar report jacoco.exec --classfiles out/production/IsATriangle --sourcefiles src --name 'Console Report' --encoding UTF-8 --csv /dev/stdout",
+    "report": "open coverage-report/index.html || xdg-open coverage-report/index.html || start coverage-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deepak14Jain/isATriangle.git"
+  },
+  "author": "Deepak Jain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Deepak14Jain/isATriangle/issues"
+  },
+  "homepage": "https://github.com/Deepak14Jain/isATriangle#readme",
+  "description": ""
+}

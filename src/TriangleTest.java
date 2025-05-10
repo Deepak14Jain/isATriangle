@@ -1,36 +1,36 @@
-import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class TriangleTest {
 
+
     @Test
-    void testEquilateralTriangle() {
-        assertEquals("Equilateral Triangle", Triangle.classifyTriangle(3, 3, 3));
+    public void testEquilateralTriangle() {
+        Assert.assertEquals("Equilateral Triangle", Triangle.classifyTriangle(3, 3, 3));
     }
 
     @Test
-    void testIsoscelesTriangle() {
-        assertEquals("Isosceles Triangle", Triangle.classifyTriangle(3, 3, 4));
-        assertEquals("Isosceles Triangle", Triangle.classifyTriangle(4, 3, 3));
-        assertEquals("Isosceles Triangle", Triangle.classifyTriangle(3, 4, 3));
+    public void testIsoscelesTriangle() {
+        Assert.assertEquals("Isosceles Triangle", Triangle.classifyTriangle(3, 3, 4));
+        Assert.assertEquals("Isosceles Triangle", Triangle.classifyTriangle(4, 3, 3));
+        Assert.assertEquals("Isosceles Triangle", Triangle.classifyTriangle(3, 4, 3));
     }
 
     @Test
-    void testScaleneTriangle() {
-        assertEquals("Scalene Triangle", Triangle.classifyTriangle(3, 4, 5));
-        assertEquals("Scalene Triangle", Triangle.classifyTriangle(5, 6, 7));
+    public void testScaleneTriangle() {
+        Assert.assertEquals("Scalene Triangle", Triangle.classifyTriangle(3, 4, 5));
+        Assert.assertEquals("Scalene Triangle", Triangle.classifyTriangle(5, 6, 7));
     }
 
     @Test
-    void testInvalidTriangleZeroOrNegativeSides() {
-        assertEquals("Not a Triangle", Triangle.classifyTriangle(0, 3, 3));
-        assertEquals("Not a Triangle", Triangle.classifyTriangle(-1, 3, 4));
+    public void testInvalidTriangleZeroOrNegativeSides() {
+        Assert.assertEquals("Not a Triangle", Triangle.classifyTriangle(0, 3, 3));
+        Assert.assertEquals("Not a Triangle", Triangle.classifyTriangle(-1, 3, 4));
     }
 
     @Test
-    void testInvalidTriangleInequality() {
-        assertEquals("Not a Triangle", Triangle.classifyTriangle(1, 2, 3));
-        assertEquals("Not a Triangle", Triangle.classifyTriangle(10, 2, 2));
+    public void testInvalidTriangleInequality() {
+        Assert.assertEquals("Not a Triangle", Triangle.classifyTriangle(1, 2, 3));
+        Assert.assertEquals("Not a Triangle", Triangle.classifyTriangle(10, 2, 2));
     }
 }

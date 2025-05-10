@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Triangle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Triangle Coverage Report</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Triangle.java</span></div><h1>Triangle.java</h1><pre class="source lang-java linenums">import java.util.Scanner;
+
+<span class="nc" id="L3">public class Triangle {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L5">        int a = inputSide('A');</span>
+<span class="nc" id="L6">        int b = inputSide('B');</span>
+<span class="nc" id="L7">        int c = inputSide('C');</span>
+
+<span class="nc" id="L9">        String result = classifyTriangle(a, b, c);</span>
+<span class="nc" id="L10">        System.out.println(&quot;A: &quot; + a);</span>
+<span class="nc" id="L11">        System.out.println(&quot;B: &quot; + b);</span>
+<span class="nc" id="L12">        System.out.println(&quot;C: &quot; + c);</span>
+<span class="nc" id="L13">        System.out.println(&quot;Result: &quot; + result);</span>
+<span class="nc" id="L14">    }</span>
+
+    public static int inputSide(char side) {
+        try {
+<span class="nc" id="L18">            Scanner scanner = new Scanner(System.in);</span>
+
+            // Input: Three sides of the triangle
+<span class="nc" id="L21">            System.out.print(&quot;Enter side &quot; + side +&quot;: &quot;);</span>
+<span class="nc" id="L22">            return scanner.nextInt();</span>
+<span class="nc" id="L23">        } catch (Exception e) {</span>
+<span class="nc" id="L24">            System.out.println(&quot;Error: Invalid Input, Expecting an Integer\n----------------------&quot;);</span>
+<span class="nc" id="L25">            return inputSide(side);</span>
+        }
+    }
+
+    public static String classifyTriangle(int a, int b, int c) {
+        // Check for valid triangle
+<span class="pc bpc" id="L31" title="2 of 6 branches missed.">        if (a &lt;= 0 || b &lt;= 0 || c &lt;= 0) {</span>
+<span class="fc" id="L32">            return &quot;Not a Triangle&quot;;</span>
+        }
+
+        // Triangle Inequality Theorem
+<span class="pc bpc" id="L36" title="1 of 6 branches missed.">        if (a + b &lt;= c || a + c &lt;= b || b + c &lt;= a) {</span>
+<span class="fc" id="L37">            return &quot;Not a Triangle&quot;;</span>
+        }
+
+        // Check type of triangle
+<span class="fc bfc" id="L41" title="All 4 branches covered.">        if (a == b &amp;&amp; b == c) {</span>
+<span class="fc" id="L42">            return &quot;Equilateral Triangle&quot;;</span>
+<span class="fc bfc" id="L43" title="All 6 branches covered.">        } else if (a == b || b == c || a == c) {</span>
+<span class="fc" id="L44">            return &quot;Isosceles Triangle&quot;;</span>
+        } else {
+<span class="fc" id="L46">            return &quot;Scalene Triangle&quot;;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
